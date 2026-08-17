@@ -1,0 +1,5420 @@
+{
+  "technical_assets": [
+    {
+      "id": "TA-ADVOGADO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "ADVOGADO",
+      "role": "Tabela de advogados.",
+      "business_concepts": [
+        "BC-ADVOGADO"
+      ],
+      "primary_keys": [
+        "SEQ_ADVOGADO"
+      ],
+      "foreign_keys": [
+        "COD_UF",
+        "SEQ_USUARIO"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_UF",
+          "business_meaning": "Código da UF do advogado",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de unidade federativa.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_ADVOGADO",
+          "business_meaning": "Nome do Advogado",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-AUTORIZ_ALTER_ORGAO_CONTR",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "AUTORIZ_ALTER_ORGAO_CONTR",
+      "role": "Mantém as autorizações para alteração do domicílio fiscal de um Contribuinte.",
+      "business_concepts": [
+        "BC-AUTORIZACAO_ALTERACAO"
+      ],
+      "primary_keys": [
+        "SEQ_AUTORIZ_ALTER_ORGAO_CONTR"
+      ],
+      "foreign_keys": [
+        "COD_ORGAO_LOCAL_DESTINO",
+        "COD_ORGAO_LOCAL_ORIGEM",
+        "SEQ_CONTRIBUINTE"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_ORGAO_LOCAL_DESTINO",
+          "business_meaning": "Órgão Local para o qual o Contribuinte será vinculado.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de órgão público.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CNAE_CONTRIBUINTE",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CNAE_CONTRIBUINTE",
+      "role": "Tabela que mantém a informação dos vínculos de CNAE e Contribuinte.",
+      "business_concepts": [
+        "BC-CNAE_CONTRIBUINTE"
+      ],
+      "primary_keys": [
+        "SEQ_CNAE_CONTRIBUINTE"
+      ],
+      "foreign_keys": [
+        "COD_CAE",
+        "SEQ_CONTRIBUINTE"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CAE",
+          "business_meaning": "Código de Atividade Econômica",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de atividade econômica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CNAE_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CNAE_RFB",
+      "role": "Tabela Domínio 08 da Receita Federal do Brasil - Código Nacional de Atividade Econômica.",
+      "business_concepts": [
+        "BC-CNAE_RFB"
+      ],
+      "primary_keys": [
+        "COD_CNAE"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DSC_CNAE",
+          "business_meaning": "Descrição do CNAE",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição de atividade econômica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CNAE_SECUNDARIO_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CNAE_SECUNDARIO_RFB",
+      "role": "Tabela de CNAEs de um Estabelecimento, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "business_concepts": [
+        "BC-CNAE_SECUNDARIO_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_CNAE_SECUNDARIO_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNAE_SECUNDARIO",
+          "business_meaning": "Código CNAE Secundário associado ao Estabelecimento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de atividade econômica secundária.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CNPJ_BASE_OPCAO_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CNPJ_BASE_OPCAO_RFB",
+      "role": "Tabela de registros de enquadramentos jurídicos e tributários das Empresas, baseado nos seus CNPJ Base.",
+      "business_concepts": [
+        "BC-CNPJ_BASE_OPCAO_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_CNPJ_BASE_OPCAO_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "TIP_OPCAO",
+          "business_meaning": "Opção definida para o CNPJ Base",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Tipo de opção tributária.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CONTADOR",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CONTADOR",
+      "role": "Tabela de contadores.",
+      "business_concepts": [
+        "BC-CONTADOR"
+      ],
+      "primary_keys": [
+        "COD_CONTADOR_A"
+      ],
+      "foreign_keys": [
+        "COD_UF"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "NOM_CONTADOR",
+          "business_meaning": "Nome do contador",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-CONTRIBUINTE",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CONTRIBUINTE",
+      "role": "Tabela que armazena informações sobre os contribuintes.",
+      "business_concepts": [
+        "BC-CONTRIBUINTE"
+      ],
+      "primary_keys": [
+        "SEQ_CONTRIBUINTE"
+      ],
+      "foreign_keys": [
+        "COD_CONTADOR",
+        "COD_CONTADOR_A",
+        "COD_EVENTO_MEI",
+        "COD_EVENTO_SN",
+        "COD_ORGAO_LOCAL",
+        "COD_UNIDADE_AUXILIAR"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_CONTRIBUINTE",
+          "business_meaning": "Sequencial do Contribuinte",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador técnico do contribuinte.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CONTADOR",
+          "business_meaning": "Código do Contador",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do contador associado ao contribuinte.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_EVENTO_MEI",
+          "business_meaning": "Código do Evento do MEI",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do evento relacionado ao MEI.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_EVENTO_SN",
+          "business_meaning": "Código do Evento do Simples Nacional",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do evento relacionado ao Simples Nacional.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_ORGAO_LOCAL",
+          "business_meaning": "Código do Órgão Local",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do órgão local responsável.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_UNIDADE_AUXILIAR",
+          "business_meaning": "Código da Unidade Auxiliar",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador da unidade auxiliar associada ao contribuinte.",
+          "evidence": [],
+          "confidence": 1,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 1
+    },
+    {
+      "id": "TA-CONTRIBUINTE_INSCRICAO_UNICA",
+      "asset_type": "associacao",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CONTRIBUINTE_INSCRICAO_UNICA",
+      "role": "Tabela associativa entre CGF e CNPJs.",
+      "business_concepts": [
+        "BC-CONTRIBUINTE_INSCRICAO_UNICA"
+      ],
+      "primary_keys": [
+        "SEQ_CTB_INSCRICAO_UNICA"
+      ],
+      "foreign_keys": [
+        "SEQ_CONTRIBUINTE"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "CNPJ da inscrição única",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-METADATA-COLUMN-COD_CNPJ"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_CTB_INSCRICAO_UNICA",
+          "business_meaning": "Chave primária",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador técnico.",
+          "evidence": [
+            "EV-METADATA-COLUMN-SEQ_CTB_INSCRICAO_UNICA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-CONTRIBUINTE_JUCEC",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CONTRIBUINTE_JUCEC",
+      "role": "Contribuintes cadastrados na JUCEC.",
+      "business_concepts": [
+        "BC-CONTRIBUINTE_JUCEC"
+      ],
+      "primary_keys": [
+        "SEQ_CONTRIBUINTE_JUCEC"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_EMPRESA",
+          "business_meaning": "Código identificador do Contribuinte na JUCEC",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-METADATA-COLUMN-COD_EMPRESA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-CRC",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CRC",
+      "role": "Tabela que mantém informações sobre contadores.",
+      "business_concepts": [
+        "BC-CRC"
+      ],
+      "primary_keys": [
+        "SEQ_CRC"
+      ],
+      "foreign_keys": [
+        "COD_MUNICIPIO",
+        "COD_UF"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CONTADOR",
+          "business_meaning": "CPF/CNPJ do contador",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural.",
+          "evidence": [
+            "EV-METADATA-COLUMN-COD_CONTADOR"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-CREDENCIAMENTO_TRANSMISSOR",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "CREDENCIAMENTO_TRANSMISSOR",
+      "role": "Tabela que mantém informações sobre credenciamento de transmissores.",
+      "business_concepts": [
+        "BC-CREDENCIAMENTO_TRANSMISSOR"
+      ],
+      "primary_keys": [
+        "SEQ_CREDENCIAMENTO"
+      ],
+      "foreign_keys": [
+        "SEQ_CONTRIBUINTE",
+        "SEQ_SOCIO",
+        "SEQ_TRANSMISSOR"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "DAT_CREDENCIAMENTO",
+          "business_meaning": "Data do credenciamento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data técnica.",
+          "evidence": [
+            "EV-METADATA-COLUMN-DAT_CREDENCIAMENTO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-DILIGENCIA",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "DILIGENCIA",
+      "role": "Tabela que mantém as diligências do contribuinte.",
+      "business_concepts": [
+        "BC-DILIGENCIA"
+      ],
+      "primary_keys": [
+        "SEQ_DILIGENCIA"
+      ],
+      "foreign_keys": [
+        "SEQ_CONTRIBUINTE"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "DSC_DILIGENCIA",
+          "business_meaning": "Observação informada no cadastramento da diligência.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição técnica.",
+          "evidence": [
+            "EV-METADATA-COLUMN-DSC_DILIGENCIA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-EDITAL_ORGAO",
+      "asset_type": "cadastro",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "EDITAL_ORGAO",
+      "role": "Tabela com o último número de edital usado em cada órgão local.",
+      "business_concepts": [
+        "BC-EDITAL_ORGAO"
+      ],
+      "primary_keys": [
+        "SEQ_EDITAL_ORGAO"
+      ],
+      "foreign_keys": [
+        "COD_ORGAO_LOCAL"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "NUM_EDITAL",
+          "business_meaning": "Número do último edital de cada órgão local.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Número técnico.",
+          "evidence": [
+            "EV-METADATA-COLUMN-NUM_EDITAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-EMPRESA_RFB",
+      "asset_type": "cadastro",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "EMPRESA_RFB",
+      "role": "Tabela de Empresas, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "business_concepts": [
+        "BC-EMPRESA_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_EMPRESA_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "Número do CNPJ da Empresa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-METADATA-COLUMN-COD_CNPJ"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-ESTABELECIMENTO_RFB",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "ESTABELECIMENTO_RFB",
+      "role": "Tabela de Estabelecimentos",
+      "business_concepts": [
+        "BC-ESTABELECIMENTO_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_ESTABELECIMENTO_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "Número do CNPJ do Estabelecimento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_FANTASIA",
+          "business_meaning": "Nome de fantasia do Estabelecimento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Nome comercial do estabelecimento.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-EVENTOS_REDESIM",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "EVENTOS_REDESIM",
+      "role": "Eventos que chegam pelo REDESIM",
+      "business_concepts": [
+        "BC-EVENTOS_REDESIM"
+      ],
+      "primary_keys": [
+        "COD_EVENTO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_EVENTO",
+          "business_meaning": "Código do evento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador do evento.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-EXCECAO_ORGAOS",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "EXCECAO_ORGAOS",
+      "role": "Tabela de Exceção de Órgãos",
+      "business_concepts": [
+        "BC-EXCECAO_ORGAOS"
+      ],
+      "primary_keys": [
+        "SEQ_EXCECAO_ORGAOS"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ_BASE",
+          "business_meaning": "CNPJ base que será exceção",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-HISTORICO_CNAE_CONTRIB",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_CNAE_CONTRIB",
+      "role": "Histórico de CNAE do Contribuinte",
+      "business_concepts": [
+        "BC-HISTORICO_CNAE_CONTRIB"
+      ],
+      "primary_keys": [
+        "SEQ_HISTORICO_CNAE_CONTRIB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DAT_MOVIMENTO",
+          "business_meaning": "Data e hora do registro da alteração no cadastro do Contribuinte",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data de movimentação do registro.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0
+    },
+    {
+      "id": "TA-HISTORICO_CONTADOR",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_CONTADOR",
+      "role": "Histórico do cadastro de contadores",
+      "business_concepts": [
+        "BC-HISTORICO_CONTADOR"
+      ],
+      "primary_keys": [
+        "SEQ_HISTORICO_CONTADOR"
+      ],
+      "foreign_keys": [
+        "COD_CGF"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CGF",
+          "business_meaning": "Número do CGF do Contribuinte ao qual o Contador foi incluído ou excluído.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do contribuinte.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CONTADOR",
+          "business_meaning": "CPF ou CNPJ que identifica o Contador.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural ou jurídica.",
+          "evidence": [],
+          "confidence": 0.85,
+          "validation_required": true
+        },
+        {
+          "column_name": "DAT_MOVIMENTO",
+          "business_meaning": "Data da movimentação do histórico.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data não identificável.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_HISTORICO_CONTADOR",
+          "business_meaning": "Sequencial identificador do registro.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador técnico.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HISTORICO_CONTRIBUINTE",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_CONTRIBUINTE",
+      "role": "Armazena o histórico de alterações cadastrais dos contribuintes.",
+      "business_concepts": [
+        "BC-HISTORICO_CONTRIBUINTE"
+      ],
+      "primary_keys": [
+        "DAT_MOVIMENTO",
+        "SEQ_CONTRIBUINTE"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DAT_MOVIMENTO",
+          "business_meaning": "Data do movimento do histórico.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_CONTRIBUINTE",
+          "business_meaning": "Sequencial do contribuinte.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador técnico do contribuinte.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HISTORICO_CRC",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_CRC",
+      "role": "Armazena o histórico de registros de CRC de contadores.",
+      "business_concepts": [
+        "BC-HISTORICO_CRC"
+      ],
+      "primary_keys": [
+        "SEQ_HIST_CRC"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CONTADOR",
+          "business_meaning": "CPF/CNPJ do contador",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.85,
+          "validation_required": false
+        },
+        {
+          "column_name": "DAT_HIST",
+          "business_meaning": "Data do histórico",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data não identifica pessoa.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HISTORICO_SOCIEDADE",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_SOCIEDADE",
+      "role": "Armazena o histórico de sociedades de contribuintes.",
+      "business_concepts": [
+        "BC-HISTORICO_SOCIEDADE"
+      ],
+      "primary_keys": [
+        "DAT_MOVIMENTO",
+        "SEQ_CONTRIBUINTE",
+        "SEQ_SOCIO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_CONTRIBUINTE",
+          "business_meaning": "Sequencial do contribuinte",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de entidade jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_SOCIO",
+          "business_meaning": "Sequencial do sócio",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de entidade jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HISTORICO_SOCIO",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HISTORICO_SOCIO",
+      "role": "Armazena o histórico de sócios de contribuintes.",
+      "business_concepts": [
+        "BC-HISTORICO_SOCIO"
+      ],
+      "primary_keys": [
+        "DAT_MOVIMENTO",
+        "SEQ_SOCIO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_SOCIO",
+          "business_meaning": "Código do sócio",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.85,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HIST_CONTRIBUINTE_JUCEC",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HIST_CONTRIBUINTE_JUCEC",
+      "role": "Histórico de Contribuintes",
+      "business_concepts": [
+        "BC-HISTORICO_CONTRIBUINTE"
+      ],
+      "primary_keys": [
+        "SEQ_HIST_CONTRIBUINTE_JUCEC"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_EMPRESA",
+          "business_meaning": "Código identificador do Contribuinte na JUCEC",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de empresa na JUCEC.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_INSCRICAO_JUNTA",
+          "business_meaning": "Inscrição na Junta Comercial (NIRE)",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de inscrição na JUCEC.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DAT_ATUALIZACAO",
+          "business_meaning": "Data da última atualização na SEFAZ",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data de atualização do registro.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HIST_ORGAO_PUBLICO",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HIST_ORGAO_PUBLICO",
+      "role": "Histórico de Órgãos Públicos",
+      "business_concepts": [
+        "BC-HISTORICO_ORGAO_PUBLICO"
+      ],
+      "primary_keys": [
+        "DAT_ATUALIZACAO",
+        "SEQ_ORGAO_PUBLICO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "CNPJ do órgão público",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de órgão público.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_RAZAO_SOCIAL",
+          "business_meaning": "Razão Social do órgão público",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Nome do órgão público.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HIST_PESSOA",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HIST_PESSOA",
+      "role": "Registro de histórico de alterações de dados de pessoas.",
+      "business_concepts": [
+        "BC-HISTORICO_PESSOA"
+      ],
+      "primary_keys": [
+        "DAT_ATUALIZACAO",
+        "SEQ_PESSOA"
+      ],
+      "foreign_keys": [
+        "SEQ_PESSOA"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_USUARIO",
+          "business_meaning": "Código do Usuário Responsável pela alteração.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador do usuário que fez a alteração.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DAT_ATUALIZACAO",
+          "business_meaning": "Data da alteração.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data que registra a alteração.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_PESSOA",
+          "business_meaning": "Identificador único de instância de Pessoa no Cadastro.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural ou jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HIST_PESSOA_FISICA_JURIDICA",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HIST_PESSOA_FISICA_JURIDICA",
+      "role": "Registro de histórico de alterações de dados de pessoas físicas e jurídicas.",
+      "business_concepts": [
+        "BC-HISTORICO_PESSOA_FISICA_JURIDICA"
+      ],
+      "primary_keys": [
+        "DAT_ATUALIZACAO",
+        "SEQ_PESSOA_FISICA_JURIDICA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_IDENTIDADE",
+          "business_meaning": "Número da identidade.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_MUNICIPIO",
+          "business_meaning": "Código do município.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de município.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-HIST_TRANSMISSAO",
+      "asset_type": "log",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "HIST_TRANSMISSAO",
+      "role": "Registro de histórico de transmissões.",
+      "business_concepts": [
+        "BC-HIST_TRANSMISSAO"
+      ],
+      "primary_keys": [],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DAT_RECEPCAO",
+          "business_meaning": "Data de recepção do arquivo.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_ARQUIVO",
+          "business_meaning": "Nome do arquivo transmitido.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Nome do arquivo não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-INCORPORACAO_JUCEC",
+      "asset_type": "transacao",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "INCORPORACAO_JUCEC",
+      "role": "Registro de lotes de documentos digitalizados.",
+      "business_concepts": [
+        "BC-INCORPORACAO_JUCEC"
+      ],
+      "primary_keys": [
+        "SEQ_INCORPORACAO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_INCORPORACAO",
+          "business_meaning": "Sequencial da tabela INCORPORACAO_JUCEC.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Sequencial não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-LIBERACAO_CADINE",
+      "asset_type": "transacao",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "LIBERACAO_CADINE",
+      "role": "Registro de liberações do cadastramento de Sócio.",
+      "business_concepts": [
+        "BC-LIBERACAO_CADINE"
+      ],
+      "primary_keys": [
+        "SEQ_LIBERACAO_CADINE"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_LIBERACAO_CADINE",
+          "business_meaning": "Sequencial da tabela LIBERACAO_CADINE.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Sequencial não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-LOG_CONTRIBUINTE",
+      "asset_type": "log",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "LOG_CONTRIBUINTE",
+      "role": "Registro de alterações de processos REDESIM.",
+      "business_concepts": [
+        "BC-LOG_CONTRIBUINTE"
+      ],
+      "primary_keys": [
+        "SEQ_LOG_CONTRIBUINTE"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_LOG_CONTRIBUINTE",
+          "business_meaning": "Sequencial da tabela LOG_CONTRIBUINTE.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Sequencial não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-LOG_REQUISICAO_RFB",
+      "asset_type": "log",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "LOG_REQUISICAO_RFB",
+      "role": "Registro de logs de requisições ao serviço da RFB.",
+      "business_concepts": [
+        "BC-LOG_REQUISICAO_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_LOG_REQUISICAO_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DAT_REQUISICAO",
+          "business_meaning": "Data da requisição",
+          "classificacao_lgpd": "pendente_validacao",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data de requisição não é pessoal.",
+          "evidence": [],
+          "confidence": 0.5,
+          "validation_required": true
+        },
+        {
+          "column_name": "DSC_REQUISICAO",
+          "business_meaning": "Descrição da requisição",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição não é pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_USUARIO",
+          "business_meaning": "Nome do usuário que fez a requisição",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de usuário pode identificar pessoa.",
+          "evidence": [],
+          "confidence": 0.85,
+          "validation_required": false
+        },
+        {
+          "column_name": "NUM_DOCUMENTO",
+          "business_meaning": "Número do CPF ou CNPJ consultado",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Número de documento é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-MOTIVO_BAIXA_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "MOTIVO_BAIXA_RFB",
+      "role": "Tabela de motivos de baixa de estabelecimentos.",
+      "business_concepts": [
+        "BC-MOTIVO_BAIXA_RFB"
+      ],
+      "primary_keys": [
+        "COD_MOTIVO_BAIXA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_MOTIVO_BAIXA",
+          "business_meaning": "Código do motivo de baixa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_MOTIVO_BAIXA",
+          "business_meaning": "Descrição do motivo de baixa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-MOTIVO_INDEF_SN",
+      "asset_type": "cadastro",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "MOTIVO_INDEF_SN",
+      "role": "Tabela de motivos de indeferimento do Simples Nacional.",
+      "business_concepts": [
+        "BC-MOTIVO_INDEF_SN"
+      ],
+      "primary_keys": [
+        "SEQ_MOTIVO_INDEF_SN"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_MOTIVO_INDEF_SN",
+          "business_meaning": "Identificador único do motivo de indeferimento",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "Código CNPJ do contribuinte",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "CNPJ é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-MUNICIPIO_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "MUNICIPIO_RFB",
+      "role": "Tabela de municípios do Brasil.",
+      "business_concepts": [
+        "BC-MUNICIPIO_RFB"
+      ],
+      "primary_keys": [
+        "COD_MUNICIPIO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_MUNICIPIO",
+          "business_meaning": "Código do município",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_MUNICIPIO",
+          "business_meaning": "Descrição do município",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-NATUREZA_JURIDICA_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "NATUREZA_JURIDICA_RFB",
+      "role": "Tabela de natureza jurídica de empresas.",
+      "business_concepts": [
+        "BC-NATUREZA_JURIDICA_RFB"
+      ],
+      "primary_keys": [
+        "COD_NATUREZA_JURIDICA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_NATUREZA_JURIDICA",
+          "business_meaning": "Código da natureza jurídica",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_NATUREZA_JURIDICA",
+          "business_meaning": "Descrição da natureza jurídica",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-OCORRENCIA_HIST_CONTRIB",
+      "asset_type": "historico",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "OCORRENCIA_HIST_CONTRIB",
+      "role": "Mantém ocorrências de alterações de informações cadastrais de um Contribuinte.",
+      "business_concepts": [
+        "BC-OCORRENCIA_HIST_CONTRIB"
+      ],
+      "primary_keys": [
+        "SEQ_OCORRENCIA_HIST_CONTRIB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_OCORRENCIA_HIST_CONTRIB",
+          "business_meaning": "Sequencial identificador do registro",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DAT_MOVIMENTO",
+          "business_meaning": "Data de movimento do histórico do Contribuinte",
+          "classificacao_lgpd": "pendente_validacao",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Data de movimento não é pessoal.",
+          "evidence": [],
+          "confidence": 0.5,
+          "validation_required": true
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-ORGAO_PUBLICO",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "ORGAO_PUBLICO",
+      "role": "Tabela contendo os órgãos públicos.",
+      "business_concepts": [
+        "BC-ORGAO_PUBLICO"
+      ],
+      "primary_keys": [
+        "SEQ_ORGAO_PUBLICO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_ORGAO_PUBLICO",
+          "business_meaning": "Sequencial da tabela",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Sequencial não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CNPJ",
+          "business_meaning": "CNPJ do órgão público",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "CNPJ é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-PAIS_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "PAIS_RFB",
+      "role": "Tabela de países.",
+      "business_concepts": [
+        "BC-PAIS_RFB"
+      ],
+      "primary_keys": [
+        "COD_PAIS"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_PAIS",
+          "business_meaning": "Código do País",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_PAIS",
+          "business_meaning": "Descrição do País",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-PESSOA",
+      "asset_type": "associacao",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "PESSOA",
+      "role": "Entidade que representa pessoas físicas ou jurídicas.",
+      "business_concepts": [
+        "BC-PESSOA"
+      ],
+      "primary_keys": [
+        "SEQ_PESSOA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_PESSOA",
+          "business_meaning": "Identificador único de instância de Pessoa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-PESSOA_FISICA_JURIDICA",
+      "asset_type": "transacao",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "PESSOA_FISICA_JURIDICA",
+      "role": "Representa pessoas físicas ou jurídicas.",
+      "business_concepts": [
+        "BC-PESSOA_FISICA_JURIDICA"
+      ],
+      "primary_keys": [
+        "SEQ_PESSOA_FISICA_JURIDICA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_PESSOA_FISICA_JURIDICA",
+          "business_meaning": "Identificador único de Pessoa Física/Jurídica",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador não é dado pessoal.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-PESSOA_FISICA_RFB",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "PESSOA_FISICA_RFB",
+      "role": "Tabela de Pessoas Físicas",
+      "business_concepts": [
+        "BC-PESSOA_FISICA"
+      ],
+      "primary_keys": [
+        "SEQ_PESSOA_FISICA_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CPF",
+          "business_meaning": "Número de CPF da Pessoa Física",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador oficial de pessoa natural.",
+          "evidence": [
+            "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-COD_CPF"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_PESSOA_FISICA",
+          "business_meaning": "Nome da Pessoa Física",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de pessoa natural.",
+          "evidence": [
+            "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-NOM_PESSOA_FISICA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "STA_SITUACAO_CADASTRAL",
+          "business_meaning": "Situação Cadastral do CPF",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Classificação de situação cadastral.",
+          "evidence": [
+            "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-STA_SITUACAO_CADASTRAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-PORTE_EMPRESA_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "PORTE_EMPRESA_RFB",
+      "role": "Tabela de Porte de Empresa",
+      "business_concepts": [
+        "BC-PORTE_EMPRESA"
+      ],
+      "primary_keys": [
+        "COD_PORTE_EMPRESA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_PORTE_EMPRESA",
+          "business_meaning": "Código do Porte de Empresa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de domínio.",
+          "evidence": [
+            "EV-METADATA_COLUMN-PORTE_EMPRESA_RFB-COD_PORTE_EMPRESA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_PORTE_EMPRESA",
+          "business_meaning": "Descrição do Porte de Empresa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição de domínio.",
+          "evidence": [
+            "EV-METADATA_COLUMN-PORTE_EMPRESA_RFB-DSC_PORTE_EMPRESA"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-QUALIFICACAO_SOCIO_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "QUALIFICACAO_SOCIO_RFB",
+      "role": "Tabela de Qualificação de Sócio",
+      "business_concepts": [
+        "BC-QUALIFICACAO_SOCIO"
+      ],
+      "primary_keys": [
+        "COD_QUALIFICACAO_SOCIO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_QUALIFICACAO_SOCIO",
+          "business_meaning": "Código da Qualificação de um Sócio",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de domínio.",
+          "evidence": [
+            "EV-METADATA_COLUMN-QUALIFICACAO_SOCIO_RFB-COD_QUALIFICACAO_SOCIO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_QUALIFICACAO_SOCIO",
+          "business_meaning": "Descrição da Qualificação de um Sócio",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição de domínio.",
+          "evidence": [
+            "EV-METADATA_COLUMN-QUALIFICACAO_SOCIO_RFB-DSC_QUALIFICACAO_SOCIO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-REPRESENTANTE_CRC",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "REPRESENTANTE_CRC",
+      "role": "Tabela de Representantes do CRC",
+      "business_concepts": [
+        "BC-REPRESENTANTE_CRC"
+      ],
+      "primary_keys": [
+        "SEQ_REPRESENTANTE_CRC"
+      ],
+      "foreign_keys": [
+        "SEQ_CRC_CNPJ"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CPF_REPRESENTANTE",
+          "business_meaning": "CPF do Representante da empresa de contabilidade",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador oficial de pessoa natural.",
+          "evidence": [
+            "EV-METADATA_COLUMN-REPRESENTANTE_CRC-COD_CPF_REPRESENTANTE"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DAT_INCLUSAO",
+          "business_meaning": "Data da Inclusão",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Data de operação.",
+          "evidence": [
+            "EV-METADATA_COLUMN-REPRESENTANTE_CRC-DAT_INCLUSAO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-REPRESENTANTE_NFA",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "REPRESENTANTE_NFA",
+      "role": "Tabela de Representantes NFA",
+      "business_concepts": [
+        "BC-REPRESENTANTE_NFA"
+      ],
+      "primary_keys": [
+        "SEQ_REPRESENTANTE_NFA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ_REPRESENTANTE",
+          "business_meaning": "CNPJ do Emissor",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-METADATA_COLUMN-REPRESENTANTE_NFA-COD_CNPJ_REPRESENTANTE"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-RFB_EVENTO_MEI",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "RFB_EVENTO_MEI",
+      "role": "Tabela de Eventos MEI",
+      "business_concepts": [
+        "BC-RFB_EVENTO_MEI"
+      ],
+      "primary_keys": [
+        "SEQ_RFB_EVENTO_MEI"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_EVENTO_MEI",
+          "business_meaning": "Código do evento do SIMEI",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código de domínio.",
+          "evidence": [
+            "EV-METADATA_COLUMN-RFB_EVENTO_MEI-COD_EVENTO_MEI"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-RFB_EVENTO_SN",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "RFB_EVENTO_SN",
+      "role": "Armazenar eventos do Simples Nacional",
+      "business_concepts": [
+        "BC-RFB_EVENTO_SN"
+      ],
+      "primary_keys": [
+        "SEQ_RFB_EVENTO_SN"
+      ],
+      "foreign_keys": [
+        "COD_EVENTO_SN"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ_BASICO",
+          "business_meaning": "Número do CNPJ básico enviado pela Receita Federal",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-RFB_EVENTO_SN-COD_CNPJ_BASICO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_EVENTO_SN",
+          "business_meaning": "Código do evento do Simples Nacional",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de evento.",
+          "evidence": [
+            "EV-RFB_EVENTO_SN-COD_EVENTO_SN"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_NATUREZA_EVENTO",
+          "business_meaning": "Natureza de evento do Simples Nacional",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de natureza de evento.",
+          "evidence": [
+            "EV-RFB_EVENTO_SN-COD_NATUREZA_EVENTO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_USUARIO",
+          "business_meaning": "Código do usuário que gravou o registro",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "interna",
+          "justificativa_classificacao": "Identificador de usuário do sistema.",
+          "evidence": [
+            "EV-RFB_EVENTO_SN-COD_USUARIO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SINDUSCON",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SINDUSCON",
+      "role": "Armazenar informações de empresas filiadas ao SINDUSCON",
+      "business_concepts": [
+        "BC-SINDUSCON"
+      ],
+      "primary_keys": [
+        "SEQ_SINDUSCON"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CNPJ_A",
+          "business_meaning": "CNPJ alfanumérico da Empresa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador de pessoa jurídica.",
+          "evidence": [
+            "EV-SINDUSCON-COD_CNPJ_A"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_RAZAO_SOCIAL",
+          "business_meaning": "Nome da empresa",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Nome da entidade jurídica.",
+          "evidence": [
+            "EV-SINDUSCON-NOM_RAZAO_SOCIAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SITUACAO_JURIDICA",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SITUACAO_JURIDICA",
+      "role": "Armazenar situações jurídicas",
+      "business_concepts": [
+        "BC-SITUACAO_JURIDICA"
+      ],
+      "primary_keys": [
+        "SEQ_SITUACAO_JURIDICA"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "DSC_SITUACAO_CADASTRAL",
+          "business_meaning": "Descrição da Situação Cadastral",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição de estado jurídico.",
+          "evidence": [
+            "EV-SITUACAO_JURIDICA-DSC_SITUACAO_CADASTRAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SITUACAO_CADASTRAL_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SITUACAO_CADASTRAL_RFB",
+      "role": "Tabela de referência para a situação cadastral de estabelecimentos.",
+      "business_concepts": [
+        "BC-SITUACAO_CADASTRAL"
+      ],
+      "primary_keys": [
+        "COD_SITUACAO_CADASTRAL"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_SITUACAO_CADASTRAL",
+          "business_meaning": "Código da Situação Cadastral",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código que não identifica pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-COD_SITUACAO_CADASTRAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "DSC_SITUACAO_CADASTRAL",
+          "business_meaning": "Descrição da Situação Cadastral",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Descrição que não identifica pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-DSC_SITUACAO_CADASTRAL"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIEDADE",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIEDADE",
+      "role": "Tabela que contém informações sobre sociedades e seus sócios.",
+      "business_concepts": [
+        "BC-SOCIEDADE"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIEDADE"
+      ],
+      "foreign_keys": [
+        "SEQ_CONTRIBUINTE",
+        "SEQ_SOCIO"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_SOCIEDADE",
+          "business_meaning": "Sequencial identificador da sociedade",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador que não se refere a pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-SEQ_SOCIEDADE"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_CONTRIBUINTE",
+          "business_meaning": "Sequencial identificador do contribuinte",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador que não se refere a pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-SEQ_CONTRIBUINTE"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "SEQ_SOCIO",
+          "business_meaning": "Sequencial identificador do sócio",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador que não se refere a pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-SEQ_SOCIO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIEDADE_JUCEC",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIEDADE_JUCEC",
+      "role": "Tabela que contém informações sobre sociedades registradas na JUCEC.",
+      "business_concepts": [
+        "BC-SOCIEDADE_JUCEC"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIEDADE_JUCEC"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_SOCIEDADE_JUCEC",
+          "business_meaning": "Sequencial identificador do registro",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador que não se refere a pessoa natural.",
+          "evidence": [
+            "EV-METADATACOLUMN-SEQ_SOCIEDADE_JUCEC"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIO",
+      "role": "Registro de informações sobre sócios.",
+      "business_concepts": [
+        "BC-SOCIO"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIO"
+      ],
+      "foreign_keys": [
+        "COD_UF"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_SOCIO",
+          "business_meaning": "Identificador único do sócio.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador único de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NOM_SOCIO",
+          "business_meaning": "Nome do sócio.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "NUM_CEP",
+          "business_meaning": "Código de Endereçamento Postal do sócio.",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIO_ESTRANGEIRO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIO_ESTRANGEIRO",
+      "role": "Registro de informações sobre sócios estrangeiros.",
+      "business_concepts": [
+        "BC-SOCIO_ESTRANGEIRO"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIO_ESTRANGEIRO"
+      ],
+      "foreign_keys": [
+        "SEQ_SOCIEDADE"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "NOM_SOCIO_ESTRANGEIRO",
+          "business_meaning": "Nome do sócio estrangeiro.",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Nome de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIO_JUCEC",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIO_JUCEC",
+      "role": "Registro de sócios na JUCEC.",
+      "business_concepts": [
+        "BC-SOCIO_JUCEC"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIO_JUCEC"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOCIO_RFB",
+      "asset_type": "referencia",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOCIO_RFB",
+      "role": "Registro de sócios conforme Receita Federal.",
+      "business_concepts": [
+        "BC-SOCIO_RFB"
+      ],
+      "primary_keys": [
+        "SEQ_SOCIO_RFB"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOLICITACAO_CADASTRO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOLICITACAO_CADASTRO",
+      "role": "Tabela de solicitações de cadastro",
+      "business_concepts": [
+        "BC-SOLICITACAO_CADASTRO"
+      ],
+      "primary_keys": [
+        "SEQ_SOLICITACAO_CADASTRO"
+      ],
+      "foreign_keys": [
+        "COD_CAE_NACIONAL",
+        "COD_CAE_PRINCIPAL",
+        "COD_CAE_SECUNDARIO",
+        "COD_CAE_SECUNDARIO2",
+        "COD_ORGAO_LOCAL"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "SEQ_SOLICITACAO_CADASTRO",
+          "business_meaning": "Sequencial da solicitação de cadastro",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Identificador único da solicitação.",
+          "evidence": [
+            "EV-METADADOS-SOLICITACAO_CADASTRO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CAE_NACIONAL",
+          "business_meaning": "CNAE nacional",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código do CNAE nacional.",
+          "evidence": [
+            "EV-METADADOS-SOLICITACAO_CADASTRO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CAE_PRINCIPAL",
+          "business_meaning": "CNAE principal",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código do CNAE principal.",
+          "evidence": [
+            "EV-METADADOS-SOLICITACAO_CADASTRO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CAE_SECUNDARIO",
+          "business_meaning": "1o CNAE secundário",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código do primeiro CNAE secundário.",
+          "evidence": [
+            "EV-METADADOS-SOLICITACAO_CADASTRO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CAE_SECUNDARIO2",
+          "business_meaning": "2o CNAE secundário",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código do segundo CNAE secundário.",
+          "evidence": [
+            "EV-METADADOS-SOLICITACAO_CADASTRO"
+          ],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOLICITACAO_MOVIMENTACAO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOLICITACAO_MOVIMENTACAO",
+      "role": "Tabela contendo todas as movimentações da solicitação até sua conclusão.",
+      "business_concepts": [
+        "BC-SOLICITACAO_MOVIMENTACAO"
+      ],
+      "primary_keys": [
+        "SEQ_SOLICITACAO_MOVIMENTO"
+      ],
+      "foreign_keys": [],
+      "relevant_columns": [
+        {
+          "column_name": "COD_CPF_SOLICITANTE",
+          "business_meaning": "CPF de quem solicitou",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador oficial de pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_STATUS",
+          "business_meaning": "Status da movimentação",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código que representa o status da movimentação.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-SOLICITACAO_SOCIO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "SOLICITACAO_SOCIO",
+      "role": "Solicitações de inclusão ou alteração cadastral de Sócios de Contribuintes, realizadas pela Internet.",
+      "business_concepts": [
+        "BC-SOLICITACAO_SOCIO"
+      ],
+      "primary_keys": [
+        "COD_SOCIO",
+        "SEQ_SOLICITACAO_CADASTRO",
+        "TIP_CODIGO"
+      ],
+      "foreign_keys": [
+        "COD_CARGO",
+        "COD_CGF"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_SOCIO",
+          "business_meaning": "CPF/CNPJ do sócio",
+          "classificacao_lgpd": "dado_pessoal",
+          "visibilidade_institucional": "restrita",
+          "justificativa_classificacao": "Identificador oficial de pessoa natural ou jurídica.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        },
+        {
+          "column_name": "COD_CARGO",
+          "business_meaning": "Cargo do sócio",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código que representa o cargo do sócio.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-TRANSMISSAO",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "TRANSMISSAO",
+      "role": "Tabela de transmissão de dados.",
+      "business_concepts": [
+        "BC-TRANSMISSAO"
+      ],
+      "primary_keys": [
+        "SEQ_TRANSMISSAO"
+      ],
+      "foreign_keys": [
+        "COD_ORGAO_LOCAL",
+        "SEQ_TRANSMISSOR"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "NOM_ARQUIVO",
+          "business_meaning": "Nome do arquivo transmitido",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Nome do arquivo que não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    },
+    {
+      "id": "TA-TRANSMISSOR",
+      "asset_type": "transacional",
+      "system": "CADASTRO",
+      "schema": "cadastro",
+      "name": "TRANSMISSOR",
+      "role": "Tabela de transmissor de dados.",
+      "business_concepts": [
+        "BC-TRANSMISSOR"
+      ],
+      "primary_keys": [
+        "SEQ_TRANSMISSOR"
+      ],
+      "foreign_keys": [
+        "COD_ORGAO_LOCAL_ORIGINARIO"
+      ],
+      "relevant_columns": [
+        {
+          "column_name": "COD_TRANSMISSOR",
+          "business_meaning": "Código do transmissor",
+          "classificacao_lgpd": "nao_pessoal",
+          "visibilidade_institucional": "publica",
+          "justificativa_classificacao": "Código que não identifica pessoa natural.",
+          "evidence": [],
+          "confidence": 0.9,
+          "validation_required": false
+        }
+      ],
+      "source_reference": "",
+      "confidence": 0.9
+    }
+  ],
+  "business_rules": [
+    {
+      "id": "BR-VALIDAR_CNAE_SECUNDARIO_ATIVO",
+      "description": "Verifica se os CNAEs secundários estão ativos.",
+      "concepts": [
+        "BC-CNAE_CONTRIBUINTE"
+      ],
+      "condition": "CNAE secundário deve estar ativo.",
+      "effect": "Permite a alteração do CNAE.",
+      "exceptions": [],
+      "technical_expression_summary": "rnCnaesSecundariosAtivos.validar(dadosAlteracao);",
+      "evidence": [
+        "EV-SOURCE-RN004"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.9
+    },
+    {
+      "id": "BR-VALIDAR_CNAE_SECUNDARIO_REPETIDO",
+      "description": "Verifica se o CNAE secundário não está repetido.",
+      "concepts": [
+        "BC-CNAE_CONTRIBUINTE"
+      ],
+      "condition": "CNAE secundário não deve ser repetido.",
+      "effect": "Permite a alteração do CNAE.",
+      "exceptions": [],
+      "technical_expression_summary": "rnCnaeSecundarioRepetido.validar(dadosAlteracao);",
+      "evidence": [
+        "EV-SOURCE-RN007"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.9
+    },
+    {
+      "id": "BR-VERIFICAR_CNPJ_INSCRICAO_UNICA",
+      "description": "Verifica se o CNPJ base existe na tabela inscrição única.",
+      "concepts": [
+        "BC-CONTRIBUINTE_INSCRICAO_UNICA"
+      ],
+      "condition": "CNPJ base não existe na tabela.",
+      "effect": "Lança uma exceção.",
+      "exceptions": [],
+      "technical_expression_summary": "throw new InscricaoException(\"Empresa com inscrição centralizada.\", null, CriticasEnum.INDEFERIR);",
+      "evidence": [
+        "EV-SOURCE-RN009"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-GERIR_DILIGENCIAS",
+      "description": "Gerencia as diligências do contribuinte.",
+      "concepts": [
+        "BC-DILIGENCIA"
+      ],
+      "condition": "Diligência não pode ser nula.",
+      "effect": "Lança uma exceção.",
+      "exceptions": [],
+      "technical_expression_summary": "if (diligencia == null) { throw new CadastroException(...); }",
+      "evidence": [
+        "EV-SOURCE-RN001"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CGF",
+      "description": "Valida se o CGF informado é válido e se existe um contribuinte associado.",
+      "concepts": [
+        "BC-ESTABELECIMENTO_RFB"
+      ],
+      "condition": "CGF informado deve ser válido.",
+      "effect": "Se inválido, gera uma exceção.",
+      "exceptions": [],
+      "technical_expression_summary": "if (!CadastroUtil.validarCGF(cgf.toString())) { throw new CadastroException(\"CGF inválido.\"); }",
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CNAE",
+      "description": "Verifica se o CNAE principal é tributado.",
+      "concepts": [
+        "BC-HISTORICO_CNAE_CONTRIB"
+      ],
+      "condition": "CNAE principal deve ser tributado.",
+      "effect": "Se não for tributado, gera uma exceção.",
+      "exceptions": [],
+      "technical_expression_summary": "rnCnaePrincipalTributado.validar(dadosAlteracao);",
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CGF_DATA_MOVIMENTO",
+      "description": "Verifica se o CGF e a data de movimento são nulos antes de listar o histórico do contador.",
+      "concepts": [
+        "BC-HISTORICO_CONTADOR"
+      ],
+      "condition": "CGF ou data de movimento nulos",
+      "effect": "Lançar exceção de parâmetro nulo.",
+      "exceptions": [],
+      "technical_expression_summary": "if (codCgf == null || dataMovimento == null) { throw new CadastroException(...); }",
+      "evidence": [
+        "EV-RN001"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-NAO_PERMITIR_HISTORICO_NULO",
+      "description": "Não é permitido salvar um histórico de contador nulo.",
+      "concepts": [
+        "BC-HISTORICO_CONTADOR"
+      ],
+      "condition": "Histórico de contador nulo",
+      "effect": "Lançar exceção de parâmetro nulo.",
+      "exceptions": [],
+      "technical_expression_summary": "if (historicoContador == null) { throw new CadastroException(...); }",
+      "evidence": [
+        "EV-RN001"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDAR_DATA_DEFERIMENTO",
+      "description": "Valida se a data de deferimento não pode ser anterior à última data de deferimento do contribuinte.",
+      "concepts": [
+        "BC-HISTORICO_CONTRIBUINTE"
+      ],
+      "condition": "Data de deferimento é anterior à última data de deferimento.",
+      "effect": "Lançar exceção de cadastro.",
+      "exceptions": [],
+      "technical_expression_summary": "throw new CadastroException(\"Data de deferimento NÃO pode ser anterior à última data de deferimento desse contribuinte.\");",
+      "evidence": [
+        "EV-RNCONTRIBUINTEVALIDARDATADEFERIMENTOULTIMOHISTORICO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.9
+    },
+    {
+      "id": "BR-VALIDAR_HISTORICO_SOCIEDADE",
+      "description": "Valida se a alteração de sociedade possui todos os campos obrigatórios preenchidos.",
+      "concepts": [
+        "BC-HISTORICO_SOCIEDADE"
+      ],
+      "condition": "Se a alteração não possui todos os campos obrigatórios.",
+      "effect": "Lança uma exceção de validação.",
+      "exceptions": [],
+      "technical_expression_summary": "rnDevePossuirPelomenosUmSocio.validar(dadosAlteracao);",
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDAR_HISTORICO_SOCIO",
+      "description": "Valida se o CPF/CNPJ do sócio é válido.",
+      "concepts": [
+        "BC-HISTORICO_SOCIO"
+      ],
+      "condition": "Se o CPF/CNPJ do sócio não é válido.",
+      "effect": "Lança uma exceção de validação.",
+      "exceptions": [],
+      "technical_expression_summary": "RNValidaCPFCNPJSocio.validar(socio);",
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-OBTER_HISTORICO_CONTRIBUINTE",
+      "description": "Obtém o histórico de um contribuinte em uma data específica, considerando campos não nulos.",
+      "concepts": [
+        "BC-HISTORICO_CONTRIBUINTE"
+      ],
+      "condition": "Quando um contribuinte é consultado.",
+      "effect": "Retorna o histórico do contribuinte.",
+      "exceptions": [],
+      "technical_expression_summary": "historicoContribuinteSPEDData",
+      "evidence": [
+        "EV-RN002"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDAR_EDITAL_ORGAO_LOCAL",
+      "description": "Verifica se existe um edital para o órgão local informado.",
+      "concepts": [
+        "BC-HISTORICO_ORGAO_PUBLICO"
+      ],
+      "condition": "Quando um edital é consultado.",
+      "effect": "Retorna se o edital existe ou não.",
+      "exceptions": [],
+      "technical_expression_summary": "existeEditalParaOrgaoLocal",
+      "evidence": [
+        "EV-RN004"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_HISTORICO_PESSOA",
+      "description": "Os dados da pessoa física ou jurídica devem ser mapeados para um histórico, incluindo informações como bairro, cep e nome.",
+      "concepts": [
+        "BC-HISTORICO_PESSOA"
+      ],
+      "condition": "Se a pessoa física ou jurídica for alterada.",
+      "effect": "Um novo registro é criado no histórico.",
+      "exceptions": [],
+      "technical_expression_summary": "historico.setBairro(pessoa.getBairro());",
+      "evidence": [
+        "EV-RN003"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-STATUS_ARQUIVO",
+      "description": "O status do arquivo deve ser atualizado conforme a transmissão.",
+      "concepts": [
+        "BC-HIST_TRANSMISSAO"
+      ],
+      "condition": "Se o arquivo foi transmitido com sucesso.",
+      "effect": "Atualizar o status do arquivo para 'Transmitido'.",
+      "exceptions": [],
+      "technical_expression_summary": "STA_ARQUIVO = 'Transmitido'",
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.8
+    },
+    {
+      "id": "BR-BAIXA_ORGAO_PUBLICO",
+      "description": "Não é permitido baixar órgãos públicos pelos eventos 210 ou 244.",
+      "concepts": [
+        "BC-ORGAO_PUBLICO"
+      ],
+      "condition": "Evento de baixa é 210 ou 244.",
+      "effect": "Baixa do órgão público não é permitida.",
+      "exceptions": [],
+      "technical_expression_summary": "throw new IntegracaoException(\"Não é possível baixar Orgãos Públicos pelos evento 210 ou 244\");",
+      "evidence": [
+        "EV-RNBAIXARORGAOPUBLICO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.9
+    },
+    {
+      "id": "BR-HISTORICO_CONTRIBUINTE",
+      "description": "Obtém o histórico de um contribuinte em uma data específica, considerando campos não nulos.",
+      "concepts": [
+        "BC-OCORRENCIA_HIST_CONTRIB"
+      ],
+      "condition": "Campos não nulos.",
+      "effect": "Retorna histórico do contribuinte.",
+      "exceptions": [],
+      "technical_expression_summary": "AND (hc.codRegimeRecolhimento IS NOT NULL OR hc.codOrgaoLocal IS NOT NULL ...)",
+      "evidence": [
+        "EV-RN002"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CPF",
+      "description": "Verifica se o CPF informado é válido antes de realizar a consulta.",
+      "concepts": [
+        "BC-PESSOA_FISICA"
+      ],
+      "condition": "CPF informado não é válido.",
+      "effect": "Retorna mensagem de erro.",
+      "exceptions": [],
+      "technical_expression_summary": "if (!CadastroUtil.validarCPF(cpfString)) { return new RespostaPessoaFisicaRFBSaida(\"O CPF informado não é válido!\"); }",
+      "evidence": [
+        "EV-SOURCE-RN003"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-EXCECAO_PESSOA_NAO_ENCONTRADA",
+      "description": "Lança uma exceção se a pessoa física não for encontrada pelo ID.",
+      "concepts": [
+        "BC-PESSOA_FISICA"
+      ],
+      "condition": "Pessoa física não encontrada.",
+      "effect": "Lança exceção.",
+      "exceptions": [],
+      "technical_expression_summary": "throw new CadastroException(MensagemResource.getMessage(MensagemEnum.ME001_NENHUM_REGISTRO_ENCONTRADO));",
+      "evidence": [
+        "EV-SOURCE-RN001-B10"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDAR_SITUACAO_JURIDICA",
+      "description": "Verifica se a situação jurídica já existe para o CGF e data do evento.",
+      "concepts": [
+        "BC-SITUACAO_JURIDICA"
+      ],
+      "condition": "A situação jurídica deve ser verificada antes de salvar.",
+      "effect": "A situação jurídica é salva se não existir.",
+      "exceptions": [],
+      "technical_expression_summary": "Verifica a existência da situação jurídica.",
+      "evidence": [
+        "EV-SITUACAO_JURIDICA-VALIDACAO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-REGISTRO_EVENTO_SN",
+      "description": "Conta o número de eventos Simples Nacional para um CNPJ e data de ocorrência específicos.",
+      "concepts": [
+        "BC-RFB_EVENTO_SN"
+      ],
+      "condition": "O CNPJ e a data de ocorrência devem ser fornecidos.",
+      "effect": "Retorna a contagem de eventos.",
+      "exceptions": [],
+      "technical_expression_summary": "SELECT count(*) FROM CADASTRO.RFB_EVENTO_SN WHERE ...",
+      "evidence": [
+        "EV-RFB_EVENTO_SN-CONTAGEM"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_SITUACAO_JURIDICA",
+      "description": "Verifica se a situação jurídica já existe para o CGF e data do evento.",
+      "concepts": [
+        "BC-SITUACAO_CADASTRAL"
+      ],
+      "condition": "A situação jurídica deve ser verificada antes de salvar.",
+      "effect": "A situação jurídica é salva se não houver duplicidade.",
+      "exceptions": [],
+      "technical_expression_summary": "SituacaoJuridica situacao = repository.findByEventoRedesim_idAndDataEventoAndContribuinte_codigoCgf(request.getCodigoEvento(), request.getDataEvento(), request.getCgf());",
+      "evidence": [
+        "EV-SITUACAO_JURIDICA-VALIDACAO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_SOCIEDADE_EXCLUSAO",
+      "description": "Retorna a lista de sociedades que foram excluídas com base na data de saída ou eventos de saída.",
+      "concepts": [
+        "BC-SOCIEDADE"
+      ],
+      "condition": "A data de saída deve ser verificada.",
+      "effect": "As sociedades excluídas são retornadas.",
+      "exceptions": [],
+      "technical_expression_summary": "return sociedade.stream().filter(s -> Objects.nonNull(s.getDataSaida()) || getSocioSaidaPorEvento(s.getSocio().getCpfCnpj())).collect(Collectors.toList());",
+      "evidence": [
+        "EV-SOURCE_RULE-RN001"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_DADOS_PRODUTOR_RURAL",
+      "description": "Valida se os dados do produtor rural estão corretos antes de salvar.",
+      "concepts": [
+        "BC-SOLICITACAO_CADASTRO"
+      ],
+      "condition": "Dados do produtor rural informados.",
+      "effect": "Solicitação é salva.",
+      "exceptions": [],
+      "technical_expression_summary": "throw new CadastroException(\"Dados inválidos informados, verifiques as informações enviadas\");",
+      "evidence": [
+        "EV-RN001-B13"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CPF_PRODUTOR",
+      "description": "Verifica se o CPF do produtor rural é válido e se não existe sócio ativo.",
+      "concepts": [
+        "BC-SOLICITACAO_SOCIO"
+      ],
+      "condition": "CPF do produtor rural deve ser válido.",
+      "effect": "A solicitação é validada.",
+      "exceptions": [],
+      "technical_expression_summary": "validarSocio(entrada.getCpf());",
+      "evidence": [
+        "EV-RN002-B14"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_ENDERECO_SOCIO",
+      "description": "Verifica se o endereço do sócio foi informado.",
+      "concepts": [
+        "BC-SOLICITACAO_SOCIO"
+      ],
+      "condition": "Endereço do sócio não informado.",
+      "effect": "Adiciona erro na lista de validação.",
+      "exceptions": [],
+      "technical_expression_summary": "if (!validador.ehValido(socio.getLogradouro())) { lista.add(\"Endereço do sócio não informado.\"); }",
+      "evidence": [
+        "EV-RN004-B14"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "BR-VALIDACAO_CPF_SOCIO",
+      "description": "Verifica se o CPF do sócio foi informado e se é válido.",
+      "concepts": [
+        "BC-SOLICITACAO_SOCIO"
+      ],
+      "condition": "CPF do sócio não informado ou inválido.",
+      "effect": "Adiciona erro na lista de validação.",
+      "exceptions": [],
+      "technical_expression_summary": "if (!validador.ehValido(socio.getCodigoSocio())) { lista.add(\"CPF do sócio não informado.\"); } if (validador.ehValido(socio.getCodigoSocio()) && !CadastroUtil.validarCPF(socio.getCodigoSocio())) { lista.add(\"CPF do sócio inválido.\"); }",
+      "evidence": [
+        "EV-RN005"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    }
+  ],
+  "concept_relationships": [
+    {
+      "id": "CR-RFB_EVENTO_SN_SITUACAO_JURIDICA",
+      "source_concept_id": "BC-RFB_EVENTO_SN",
+      "relationship": "associado_a",
+      "target_concept_id": "BC-SITUACAO_JURIDICA",
+      "target_name": "",
+      "target_domain": "",
+      "external_reference": false,
+      "description": "Eventos do Simples Nacional estão associados à situação jurídica.",
+      "evidence": [
+        "EV-RFB_EVENTO_SN_SITUACAO_JURIDICA"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.85
+    }
+  ],
+  "functional_capabilities_inferred": [
+    {
+      "id": "FC-GERENCIAR_CONTADORES",
+      "name": "Gerenciar Contadores",
+      "description": "Capacidade de gerenciar informações e registros de contadores associados aos contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-CONTADOR"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-GERENCIAR_CNAE",
+      "name": "Gerenciar CNAE",
+      "description": "Capacidade de gerenciar os vínculos de CNAE dos contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-CNAE_CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-GERIR_CADASTRO_CONTRIBUINTE",
+      "name": "Gerir Cadastro do Contribuinte",
+      "description": "Capacidade de gerenciar as informações cadastrais dos contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-VERIFICAR_CNPJ_INSCRICAO_UNICA",
+      "name": "Verificar CNPJ da Inscrição Única",
+      "description": "Verifica se o CNPJ base existe na tabela inscrição única.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [],
+      "evidence": [
+        "EV-SOURCE-RN009"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERIR_DILIGENCIAS",
+      "name": "Gerir Diligências",
+      "description": "Gerencia as diligências do contribuinte.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [],
+      "evidence": [
+        "EV-SOURCE-RN001"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERIR_CADASTRO_CONTRIBUINTE-B4",
+      "name": "Gerir Cadastro de Contribuinte",
+      "description": "Capacidade de gerenciar o cadastro de contribuintes, incluindo a inclusão, alteração e exclusão de dados.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-GERENCIAR_HISTORICO_CONTADOR",
+      "name": "Gerenciar Histórico de Contador",
+      "description": "Capacidade de gerenciar o histórico de contadores, incluindo inclusão, alteração e exclusão de registros.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-HISTORICO_CONTADOR"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERIR_CADASTRO_CONTRIBUINTE-B6",
+      "name": "Gerir Cadastro do Contribuinte",
+      "description": "Capacidade de gerenciar as informações do cadastro dos contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-HISTORICO_CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "explicita_multiplas_fontes",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERENCIAR_HISTORICO_SOCIEDADE",
+      "name": "Gerenciar Histórico de Sociedade",
+      "description": "Capacidade de gerenciar e consultar o histórico de sociedades de contribuintes.",
+      "concepts": [
+        "BC-HISTORICO_SOCIEDADE"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_SOCIEDADE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "explicita_multiplas_fontes",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERENCIAR_HISTORICO_SOCIO",
+      "name": "Gerenciar Histórico de Sócio",
+      "description": "Capacidade de gerenciar e consultar o histórico de sócios de contribuintes.",
+      "concepts": [
+        "BC-HISTORICO_SOCIO"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_SOCIO"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "explicita_multiplas_fontes",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-OBTER_HISTORICO_CONTRIBUINTE",
+      "name": "Obter Histórico do Contribuinte",
+      "description": "Capacidade de obter o histórico de um contribuinte em uma data específica.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-CONSULTAR_HISTORICO_SOCIEDADE",
+      "name": "Consultar Histórico de Sociedade",
+      "description": "Capacidade de consultar os históricos de sociedade de um contribuinte.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GERENCIAR_HISTORICO_PESSOA",
+      "name": "Gerenciar Histórico de Pessoa",
+      "description": "Capacidade de registrar e consultar o histórico de alterações de dados de pessoas físicas e jurídicas.",
+      "concepts": [
+        "BC-HISTORICO_PESSOA"
+      ],
+      "technical_assets": [
+        "TA-HIST_PESSOA",
+        "TA-HIST_PESSOA_FISICA_JURIDICA"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "explicita_multiplas_fontes",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-REGISTRO_DOCUMENTOS",
+      "name": "Registro de Documentos",
+      "description": "Capacidade de registrar e controlar documentos digitalizados obtidos da JUCEC.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-INCORPORACAO_JUCEC"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-GERENCIAMENTO_LOGS",
+      "name": "Gerenciamento de Logs",
+      "description": "Capacidade de gerenciar logs de transmissão e alterações de contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-HIST_TRANSMISSAO",
+        "TA-LOG_CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-REGISTRO_OCORRENCIA",
+      "name": "Registro de Ocorrência",
+      "description": "Permite registrar ocorrências relacionadas a contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-OCORRENCIA_HIST_CONTRIB"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-CADASTRO_PESSOA_FISICA",
+      "name": "Cadastro de Pessoa Física",
+      "description": "Capacidade de cadastrar informações de pessoas físicas no sistema.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-PESSOA_FISICA_RFB"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-REGISTRO_EVENTOS",
+      "name": "Registro de Eventos do Simples Nacional",
+      "description": "Capacidade de registrar eventos do Simples Nacional enviados pela Receita Federal.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-RFB_EVENTO_SN"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "evidence": [
+        "EV-RFB_EVENTO_SN-REGISTRO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-GESTAO_SITUACAO_JURIDICA",
+      "name": "Gestão da Situação Jurídica",
+      "description": "Capacidade de gerenciar a situação jurídica dos contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-SITUACAO_JURIDICA"
+      ],
+      "official_macroprocesses": [
+        "MP-GESTAO-FISCAL"
+      ],
+      "evidence": [
+        "EV-SITUACAO_JURIDICA-GESTAO"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-CADASTRO_SOCIO",
+      "name": "Cadastro de Sócio",
+      "description": "Capacidade de registrar e gerenciar informações sobre sócios de empresas.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-SOCIO",
+        "TA-SOCIO_ESTRANGEIRO",
+        "TA-SOCIO_JUCEC",
+        "TA-SOCIO_RFB"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0
+    },
+    {
+      "id": "FC-SALVAR_SOLICITACAO_CADASTRO",
+      "name": "Salvar Solicitação de Cadastro",
+      "description": "Capacidade de salvar solicitações de inclusão ou alteração cadastral de contribuintes.",
+      "concepts": [],
+      "technical_assets": [
+        "TA-SOLICITACAO_CADASTRO"
+      ],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    },
+    {
+      "id": "FC-VALIDACAO_SOCIO",
+      "name": "Validação de Sócio",
+      "description": "Verifica a validade do CPF do sócio e se o endereço foi informado.",
+      "concepts": [],
+      "technical_assets": [],
+      "official_macroprocesses": [],
+      "evidence": [],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.85
+    }
+  ],
+  "quality_warnings": [],
+  "business_concepts": [
+    {
+      "id": "BC-ADVOGADO",
+      "preferred_name": "Advogado",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de advogados.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-ADVOGADO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-AUTORIZACAO_ALTERACAO",
+      "preferred_name": "Autorização de Alteração",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Mantém as autorizações para alteração do domicílio fiscal de um Contribuinte.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-AUTORIZ_ALTER_ORGAO_CONTR"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CNAE_CONTRIBUINTE",
+      "preferred_name": "CNAE do Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que mantém a informação dos vínculos de CNAE e Contribuinte.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CNAE_CONTRIBUINTE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CNAE_RFB",
+      "preferred_name": "CNAE RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela Domínio 08 da Receita Federal do Brasil - Código Nacional de Atividade Econômica.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CNAE_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CNAE_SECUNDARIO_RFB",
+      "preferred_name": "CNAE Secundário RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de CNAEs de um Estabelecimento, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CNAE_SECUNDARIO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CNPJ_BASE_OPCAO_RFB",
+      "preferred_name": "CNPJ Base Opção RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de registros de enquadramentos jurídicos e tributários das Empresas, baseado nos seus CNPJ Base.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CNPJ_BASE_OPCAO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CONTADOR",
+      "preferred_name": "Contador",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de contadores.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CONTADOR"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CONTRIBUINTE",
+      "preferred_name": "Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Entidade que representa os contribuintes cadastrados no sistema.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GERIR_CADASTRO_CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-CONTRIBUINTE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CONTRIBUINTE_INSCRICAO_UNICA",
+      "preferred_name": "Contribuinte Inscrição Única",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela associativa entre o CGF cadastrado na SEFAZ e os CNPJs utilizados por contribuintes de inscrição única.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-VERIFICAR_CNPJ_INSCRICAO_UNICA"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-CONTRIBUINTE_INSCRICAO_UNICA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-CONTRIBUINTE_INSCRICAO_UNICA"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CONTRIBUINTE_JUCEC",
+      "preferred_name": "Contribuinte JUCEC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Contribuintes cadastrados na JUCEC (Junta Comercial do Estado do Ceará).",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CONTRIBUINTE_JUCEC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-CONTRIBUINTE_JUCEC"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CRC",
+      "preferred_name": "CRC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que mantém informações sobre contadores.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CRC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-CRC"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-CREDENCIAMENTO_TRANSMISSOR",
+      "preferred_name": "Credenciamento Transmissor",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que mantém informações sobre credenciamento de transmissores.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-CREDENCIAMENTO_TRANSMISSOR"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-CREDENCIAMENTO_TRANSMISSOR"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-DILIGENCIA",
+      "preferred_name": "Diligência",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que mantém as diligências do contribuinte.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GERIR_DILIGENCIAS"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-DILIGENCIA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-DILIGENCIA"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-EDITAL_ORGAO",
+      "preferred_name": "Edital Órgão",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela com o último número de edital usado em cada órgão local.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-EDITAL_ORGAO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-EDITAL_ORGAO"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-EMPRESA_RFB",
+      "preferred_name": "Empresa RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de Empresas, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-EMPRESA_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATA-TABLE-EMPRESA_RFB"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-ESTABELECIMENTO_RFB",
+      "preferred_name": "Estabelecimento RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de Estabelecimentos vinculados a uma Empresa, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GERIR_CADASTRO_CONTRIBUINTE-B4"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-ESTABELECIMENTO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-EVENTOS_REDESIM",
+      "preferred_name": "Eventos REDESIM",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Eventos que chegam pelo REDESIM.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-EVENTOS_REDESIM"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-EXCECAO_ORGAOS",
+      "preferred_name": "Exceção Órgãos",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que tem os CNPJs base que serão exceção às regras de órgãos de monitoramento e fiscalização.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-EXCECAO_ORGAOS"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_CNAE_CONTRIB",
+      "preferred_name": "Histórico CNAE Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela detalhe da tabela HISTORICO_CONTRIBUINTE, que relaciona os vínculos Contribuinte x CNAE alterados em um determinado movimento de histórico.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-HISTORICO_CNAE_CONTRIB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_CONTADOR",
+      "preferred_name": "Histórico de Contador",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Representa o histórico de cadastro de contadores, incluindo operações de inclusão, alteração e exclusão.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_CONTADOR"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_CONTADOR"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_CONTRIBUINTE",
+      "preferred_name": "Histórico do Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Representa o histórico de alterações cadastrais de um contribuinte.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-GERIR_CADASTRO_CONTRIBUINTE-B6",
+        "FC-OBTER_HISTORICO_CONTRIBUINTE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_CONTRIBUINTE",
+        "TA-HIST_CONTRIBUINTE_JUCEC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_CRC",
+      "preferred_name": "Histórico de CRC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena o histórico de registros de CRC de contadores.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_SOCIEDADE"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-HISTORICO_CRC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_SOCIEDADE",
+      "preferred_name": "Histórico de Sociedade",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena o histórico de sociedades de contribuintes.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_SOCIEDADE"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_SOCIEDADE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_SOCIO",
+      "preferred_name": "Histórico de Sócio",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena o histórico de sócios de contribuintes.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_SOCIO"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HISTORICO_SOCIO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_ORGAO_PUBLICO",
+      "preferred_name": "Histórico do Órgão Público",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Representa o histórico de alterações de órgãos públicos.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HIST_ORGAO_PUBLICO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_PESSOA",
+      "preferred_name": "Histórico de Pessoa",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Registro de alterações de dados de pessoas físicas e jurídicas.",
+      "scope": "Cadastro de Contribuintes",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_PESSOA"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HIST_PESSOA",
+        "TA-HIST_PESSOA_FISICA_JURIDICA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HISTORICO_PESSOA_FISICA_JURIDICA",
+      "preferred_name": "Histórico de Pessoa Física/Jurídica",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Registro de alterações de dados de pessoas físicas e jurídicas.",
+      "scope": "Cadastro de Contribuintes",
+      "related_capabilities": [
+        "FC-GERENCIAR_HISTORICO_PESSOA"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HIST_PESSOA_FISICA_JURIDICA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-HIST_TRANSMISSAO",
+      "preferred_name": "Histórico de Transmissão",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que registra o histórico de transmissões de arquivos.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GERENCIAMENTO_LOGS"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-HIST_TRANSMISSAO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-INCORPORACAO_JUCEC",
+      "preferred_name": "Incorporação JUCEC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que registra e controla os lotes de documentos digitalizados obtidos diretamente da JUCEC.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-REGISTRO_DOCUMENTOS"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-INCORPORACAO_JUCEC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-LIBERACAO_CADINE",
+      "preferred_name": "Liberação CADINE",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que mantém as liberações do cadastramento de Sócio que possui restrições no CADINE.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-LIBERACAO_CADINE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-LOG_CONTRIBUINTE",
+      "preferred_name": "Log do Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela para gravar os dados antes de fazer a alteração dos processos REDESIM.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GERENCIAMENTO_LOGS"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-LOG_CONTRIBUINTE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-LOG_REQUISICAO_RFB",
+      "preferred_name": "Log de Requisição RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que terá os logs de acesso ao serviço da RFB.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-LOG_REQUISICAO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-MOTIVO_BAIXA_RFB",
+      "preferred_name": "Motivo de Baixa RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela Domínio 02 da Receita Federal do Brasil - Motivo de Baixa de um Estabelecimento.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-MOTIVO_BAIXA_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-MOTIVO_INDEF_SN",
+      "preferred_name": "Motivo de Indeferimento do Simples Nacional",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena os motivos de indeferimento do Simples Nacional.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-MOTIVO_INDEF_SN"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-MUNICIPIO_RFB",
+      "preferred_name": "Município RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela Domínio 09 da Receita Federal do Brasil - Municípios do Brasil.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-MUNICIPIO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-NATUREZA_JURIDICA_RFB",
+      "preferred_name": "Natureza Jurídica RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela Domínio 07 da Receita Federal do Brasil - Natureza Jurídica de uma Empresa.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-NATUREZA_JURIDICA_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-OCORRENCIA_HIST_CONTRIB",
+      "preferred_name": "Ocorrência Histórico Contribuinte",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Mantém ocorrências de alterações de informações cadastrais de um Contribuinte.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-OCORRENCIA_HIST_CONTRIB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-ORGAO_PUBLICO",
+      "preferred_name": "Órgão Público",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela contendo os órgãos públicos.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-ORGAO_PUBLICO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-PAIS_RFB",
+      "preferred_name": "País RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela Domínio 10 da Receita Federal do Brasil - Países.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-PAIS_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-PESSOA",
+      "preferred_name": "Pessoa",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Qualquer Pessoa, Física ou Jurídica, com um papel em algum sistema da SEFAZ.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-PESSOA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-PESSOA_FISICA_JURIDICA",
+      "preferred_name": "Pessoa Física/Jurídica",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Entidade que representa pessoas físicas ou jurídicas.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-PESSOA_FISICA_JURIDICA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-PESSOA_FISICA",
+      "preferred_name": "Pessoa Física",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de Pessoas Físicas (ou Pessoas Naturais), conforme arquivo de CPFs exportado pela Receita Federal do Brasil.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-CADASTRO_PESSOA_FISICA"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-PESSOA_FISICA_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-PORTE_EMPRESA",
+      "preferred_name": "Porte de Empresa",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "domínio de valor",
+      "description_evidence": "Tabela Domínio 04 da Receita Federal do Brasil - Porte de uma Empresa.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-PORTE_EMPRESA_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-QUALIFICACAO_SOCIO",
+      "preferred_name": "Qualificação de Sócio",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "domínio de valor",
+      "description_evidence": "Tabela Domínio 06 da Receita Federal do Brasil - Qualificação de um Sócio.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-QUALIFICACAO_SOCIO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-REPRESENTANTE_CRC",
+      "preferred_name": "Representante do CRC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena informações sobre representantes de empresas de contabilidade.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-REPRESENTANTE_CRC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-REPRESENTANTE_NFA",
+      "preferred_name": "Representante NFA",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena informações sobre representantes dos emissores de notas fiscais avulsas.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-REPRESENTANTE_NFA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-RFB_EVENTO_MEI",
+      "preferred_name": "Evento MEI",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que armazena arquivos de eventos do MEI enviados pela Receita Federal.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-RFB_EVENTO_MEI"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-RFB_EVENTO_SN",
+      "preferred_name": "Evento do Simples Nacional",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Arquivos de eventos do Simples Nacional enviados pela Receita Federal.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-REGISTRO_EVENTOS"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-RFB_EVENTO_SN"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-RFB_EVENTO_SN-DESCRICAO"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SITUACAO_JURIDICA",
+      "preferred_name": "Situação Jurídica",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela para guardar os eventos relacionados à situação jurídica.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-GESTAO_SITUACAO_JURIDICA"
+      ],
+      "official_macroprocesses": [
+        "MP-GESTAO-FISCAL"
+      ],
+      "technical_assets": [
+        "TA-SITUACAO_JURIDICA"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-SITUACAO_JURIDICA-DESCRICAO-B11"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SINDUSCON",
+      "preferred_name": "Sinduscon",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Contém as empresas construtoras civis filiadas ao SINDUSCON.",
+      "scope": "",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SINDUSCON"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-SINDUSCON-DESCRICAO"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SITUACAO_CADASTRAL",
+      "preferred_name": "Situação Cadastral",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que contém as situações cadastrais de estabelecimentos.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SITUACAO_CADASTRAL_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATATABLE-SITUACAO_CADASTRAL_RFB"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIEDADE",
+      "preferred_name": "Sociedade",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que contém informações sobre sociedades e seus sócios.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-SOCIEDADE"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATATABLE-SOCIEDADE"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIEDADE_JUCEC",
+      "preferred_name": "Sociedade JUCEC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela que contém informações sobre sociedades registradas na JUCEC.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SOCIEDADE_JUCEC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADATATABLE-SOCIEDADE_JUCEC"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIO",
+      "preferred_name": "Sócio",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Representa um sócio de uma sociedade, com informações pessoais e de contato.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-CADASTRO_SOCIO"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-SOCIO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIO_ESTRANGEIRO",
+      "preferred_name": "Sócio Estrangeiro",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Representa um sócio estrangeiro de uma sociedade.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-CADASTRO_SOCIO"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SOCIO_ESTRANGEIRO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIO_JUCEC",
+      "preferred_name": "Sócio JUCEC",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Sócios de Contribuintes cadastrados na JUCEC.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-CADASTRO_SOCIO"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SOCIO_JUCEC"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOCIO_RFB",
+      "preferred_name": "Sócio RFB",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de Sócios de uma Empresa, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil.",
+      "scope": "",
+      "related_capabilities": [
+        "FC-CADASTRO_SOCIO"
+      ],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-SOCIO_RFB"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOLICITACAO_CADASTRO",
+      "preferred_name": "Solicitação de Cadastro",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Solicitações de inclusão ou alteração cadastral de Contribuintes, realizadas pela Internet.",
+      "scope": "cadastro",
+      "related_capabilities": [
+        "FC-SALVAR_SOLICITACAO_CADASTRO"
+      ],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-SOLICITACAO_CADASTRO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [
+        "EV-METADADOS-SOLICITACAO_CADASTRO"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOLICITACAO_MOVIMENTACAO",
+      "preferred_name": "Solicitação de Movimentação",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela contendo todas as movimentações da solicitação até sua conclusão.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-SOLICITACAO_MOVIMENTACAO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-SOLICITACAO_SOCIO",
+      "preferred_name": "Solicitação de Sócio",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Solicitações de inclusão ou alteração cadastral de Sócios de Contribuintes, realizadas pela Internet.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [
+        "MP-ARRECADACAO"
+      ],
+      "technical_assets": [
+        "TA-SOLICITACAO_SOCIO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-TRANSMISSAO",
+      "preferred_name": "Transmissão",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de transmissão de dados.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-TRANSMISSAO"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    },
+    {
+      "id": "BC-TRANSMISSOR",
+      "preferred_name": "Transmissor",
+      "original_names": [],
+      "synonym_candidates": [],
+      "type": "entidade",
+      "description_evidence": "Tabela de transmissor de dados.",
+      "scope": "cadastro",
+      "related_capabilities": [],
+      "official_macroprocesses": [],
+      "technical_assets": [
+        "TA-TRANSMISSOR"
+      ],
+      "business_rules": [],
+      "value_domains": [],
+      "external_references": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9,
+      "validation_required": false
+    }
+  ],
+  "value_domains": [
+    {
+      "id": "VD-STATUS_CADASTRAL",
+      "name": "Situação Cadastral",
+      "description": "Situação cadastral do CPF.",
+      "values": [
+        {
+          "code": "0",
+          "label": "Regular"
+        },
+        {
+          "code": "2",
+          "label": "Suspensa"
+        },
+        {
+          "code": "3",
+          "label": "Titular Falecido"
+        },
+        {
+          "code": "4",
+          "label": "Pendente de Regularização"
+        },
+        {
+          "code": "5",
+          "label": "Cancelada por Multiplicidade"
+        },
+        {
+          "code": "8",
+          "label": "Nula"
+        },
+        {
+          "code": "9",
+          "label": "Cancelada de Ofício"
+        }
+      ],
+      "used_by": [],
+      "evidence": [],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9
+    },
+    {
+      "id": "VD-NATUREZA_EVENTO",
+      "name": "Natureza do Evento",
+      "description": "Natureza de evento do Simples Nacional.",
+      "values": [
+        {
+          "code": "1",
+          "label": "Medida Judicial"
+        },
+        {
+          "code": "2",
+          "label": "Ato Administrativo"
+        },
+        {
+          "code": "3",
+          "label": "Opção do Contribuinte"
+        },
+        {
+          "code": "4",
+          "label": "Redesim"
+        }
+      ],
+      "used_by": [
+        "BC-RFB_EVENTO_SN"
+      ],
+      "evidence": [
+        "EV-NATUREZA_EVENTO-DOMINIO"
+      ],
+      "evidence_classification": "explicita_metadado",
+      "confidence": 0.9
+    },
+    {
+      "id": "VD-COD_CARGO_JUCEC",
+      "name": "Código do Cargo JUCEC",
+      "description": "Códigos que representam os cargos dos sócios na JUCEC.",
+      "values": [
+        {
+          "code": "1",
+          "label": "Diretor"
+        },
+        {
+          "code": "2",
+          "label": "Acionista"
+        },
+        {
+          "code": "3",
+          "label": "Diretor Presidente"
+        },
+        {
+          "code": "4",
+          "label": "Sócio"
+        },
+        {
+          "code": "6",
+          "label": "Sócio Gerente"
+        },
+        {
+          "code": "7",
+          "label": "Síndico"
+        },
+        {
+          "code": "8",
+          "label": "Liquidante"
+        },
+        {
+          "code": "10",
+          "label": "Titular de FI"
+        },
+        {
+          "code": "11",
+          "label": "Gerente"
+        }
+      ],
+      "used_by": [],
+      "evidence": [
+        "EV-SOURCE_ENUM-COD_CARGO_JUCEC"
+      ],
+      "evidence_classification": "explicita_codigo",
+      "confidence": 0.9
+    }
+  ],
+  "external_references": [],
+  "siglas_e_abreviaturas": [],
+  "conflicts": [],
+  "evidence_index": [
+    {
+      "id": "EV-SOURCE-RN004",
+      "source_type": "source_rule",
+      "source_file": "ExecutarAlteracaoCNAE.java",
+      "technical_location": "linha 121",
+      "summary": "Verifica se os CNAEs secundários estão ativos."
+    },
+    {
+      "id": "EV-SOURCE-RN007",
+      "source_type": "source_rule",
+      "source_file": "ExecutarAlteracaoCNAE.java",
+      "technical_location": "linha 130",
+      "summary": "Verifica se o CNAE secundário não está repetido."
+    },
+    {
+      "id": "EV-METADATA-TABLE-CONTRIBUINTE",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que armazena informações sobre os contribuintes."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-SEQ_CONTRIBUINTE",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Sequencial do Contribuinte."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-COD_CONTADOR",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do Contador."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-COD_EVENTO_MEI",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do Evento do MEI."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-COD_EVENTO_SN",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do Evento do Simples Nacional."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-COD_ORGAO_LOCAL",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do Órgão Local."
+    },
+    {
+      "id": "EV-METADATA-COLUMN-COD_UNIDADE_AUXILIAR",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código da Unidade Auxiliar."
+    },
+    {
+      "id": "EV-METADATA-TABLE-CONTRIBUINTE_INSCRICAO_UNICA",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela associativa entre o CGF cadastrado na SEFAZ e os CNPJs utilizados por contribuintes de inscrição única."
+    },
+    {
+      "id": "EV-METADATA-TABLE-CONTRIBUINTE_JUCEC",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Contribuintes cadastrados na JUCEC (Junta Comercial do Estado do Ceará)."
+    },
+    {
+      "id": "EV-METADATA-TABLE-CRC",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que mantém informações sobre contadores."
+    },
+    {
+      "id": "EV-METADATA-TABLE-CREDENCIAMENTO_TRANSMISSOR",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que mantém informações sobre credenciamento de transmissores."
+    },
+    {
+      "id": "EV-METADATA-TABLE-DILIGENCIA",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que mantém as diligências do contribuinte."
+    },
+    {
+      "id": "EV-METADATA-TABLE-EDITAL_ORGAO",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela com o último número de edital usado em cada órgão local."
+    },
+    {
+      "id": "EV-METADATA-TABLE-EMPRESA_RFB",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela de Empresas, conforme arquivo de CNPJs exportado pela Receita Federal do Brasil."
+    },
+    {
+      "id": "EV-SOURCE-RN009",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/integracao/rn/RNVerificaCnpjInscricaoUnica.java",
+      "technical_location": "linha 10",
+      "summary": "Verifica se o CNPJ base existe na tabela inscrição única."
+    },
+    {
+      "id": "EV-SOURCE-RN001",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/model/bean/InscricaoUnicaBO.java",
+      "technical_location": "linha 66",
+      "summary": "Verifica se a entrada de diligência é nula e lança uma exceção."
+    },
+    {
+      "id": "EV-METADADOS-ESTABELECIMENTO_RFB",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela de Estabelecimentos vinculados a uma Empresa."
+    },
+    {
+      "id": "EV-METADADOS-EVENTOS_REDESIM",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Eventos que chegam pelo REDESIM."
+    },
+    {
+      "id": "EV-METADADOS-EXCECAO_ORGAOS",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que tem os CNPJs base que serão exceção às regras de órgãos de monitoramento e fiscalização."
+    },
+    {
+      "id": "EV-METADADOS-HISTORICO_CNAE_CONTRIB",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela detalhe da tabela HISTORICO_CONTRIBUINTE."
+    },
+    {
+      "id": "EV-RN-VALIDACAO_CGF",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/contribuinte/service/eventsourcing/DadosHistoricoContribuinteCnaePrincipalMunicipioRegimeRecolhimentoService.java",
+      "technical_location": "linha 30",
+      "summary": "Valida se o CGF informado é válido e se existe um contribuinte associado."
+    },
+    {
+      "id": "EV-RN-VALIDACAO_CNAE",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/contribuinte/alteracao/ExecutarAlteracaoCNAE.java",
+      "technical_location": "linha 112",
+      "summary": "Verifica se o CNAE principal é tributado."
+    },
+    {
+      "id": "EV-RN001",
+      "source_type": "source_rule",
+      "source_file": "HistoricoContadorBO.java",
+      "technical_location": "listarHistoricoContadorDataMovimentoCGFOperacao",
+      "summary": "Verifica se o CGF e a data de movimento são nulos antes de listar o histórico do contador."
+    },
+    {
+      "id": "EV-RNCONTRIBUINTEVALIDARDATADEFERIMENTOULTIMOHISTORICO",
+      "source_type": "source_rule",
+      "source_file": "RNContribuinteValidarDataDeferimentoUltimoHistorico.java",
+      "technical_location": "linha 12",
+      "summary": "Regra que valida a data de deferimento do contribuinte."
+    },
+    {
+      "id": "EV-METADADOS-HISTORICO_CRC",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "HISTORICO_CRC",
+      "summary": "Tabela que armazena o histórico de registros de CRC de contadores."
+    },
+    {
+      "id": "EV-METADADOS-HISTORICO_SOCIEDADE",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "HISTORICO_SOCIEDADE",
+      "summary": "Tabela que armazena o histórico de sociedades de contribuintes."
+    },
+    {
+      "id": "EV-METADADOS-HISTORICO_SOCIO",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "HISTORICO_SOCIO",
+      "summary": "Tabela que armazena o histórico de sócios de contribuintes."
+    },
+    {
+      "id": "EV-SOURCE_RULE-RN002",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/model/repository/DadosContribuinteDeterminadaDataRepository.java",
+      "technical_location": "historicoContribuinteSPEDData",
+      "summary": "Obtém o histórico de um contribuinte em uma data específica, considerando campos não nulos."
+    },
+    {
+      "id": "EV-SOURCE_RULE-RN003",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/v2/model/bean/sociedade/HistoricoSociedadeBOV2.java",
+      "technical_location": "listarHistoricoSociedade",
+      "summary": "Consulta os históricos de sociedade de um contribuinte."
+    },
+    {
+      "id": "EV-RN002",
+      "source_type": "source_rule",
+      "source_file": "DadosContribuinteDeterminadaDataRepository.java",
+      "technical_location": "linha 15",
+      "summary": "Obtém o histórico de um contribuinte em uma data específica."
+    },
+    {
+      "id": "EV-RN004",
+      "source_type": "source_rule",
+      "source_file": "RNEditalValidar.java",
+      "technical_location": "linha 10",
+      "summary": "Verifica se existe um edital para o órgão local informado."
+    },
+    {
+      "id": "EV-RN003",
+      "source_type": "source_rule",
+      "source_file": "cadastro-core/src/main/java/br/gov/ce/sefaz/cadastro/mapper/HistoricoPessoaFisicaJuridicaMapper.java",
+      "technical_location": "linha 20",
+      "summary": "Os dados da pessoa física ou jurídica são mapeados para um histórico."
+    },
+    {
+      "id": "EV-HIST_TRANSMISSAO",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que registra o histórico de transmissões de arquivos."
+    },
+    {
+      "id": "EV-INCORPORACAO_JUCEC",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que registra e controla os lotes de documentos digitalizados obtidos diretamente da JUCEC."
+    },
+    {
+      "id": "EV-LIBERACAO_CADINE",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela que mantém as liberações do cadastramento de Sócio que possui restrições no CADINE."
+    },
+    {
+      "id": "EV-LOG_CONTRIBUINTE",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela para gravar os dados antes de fazer a alteração dos processos REDESIM."
+    },
+    {
+      "id": "EV-RNBAIXARORGAOPUBLICO",
+      "source_type": "source_rule",
+      "source_file": "RNBaixarOrgaoPublico.java",
+      "technical_location": "linha 20",
+      "summary": "Regra que proíbe a baixa de órgãos públicos pelos eventos 210 ou 244."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-COD_CPF",
+      "source_type": "metadata_column",
+      "source_file": "PESSOA_FISICA_RFB",
+      "technical_location": "COD_CPF",
+      "summary": "Número de CPF da Pessoa Física."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-NOM_PESSOA_FISICA",
+      "source_type": "metadata_column",
+      "source_file": "PESSOA_FISICA_RFB",
+      "technical_location": "NOM_PESSOA_FISICA",
+      "summary": "Nome da Pessoa Física."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-PESSOA_FISICA_RFB-STA_SITUACAO_CADASTRAL",
+      "source_type": "metadata_column",
+      "source_file": "PESSOA_FISICA_RFB",
+      "technical_location": "STA_SITUACAO_CADASTRAL",
+      "summary": "Situação Cadastral do CPF."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-PORTE_EMPRESA_RFB-COD_PORTE_EMPRESA",
+      "source_type": "metadata_column",
+      "source_file": "PORTE_EMPRESA_RFB",
+      "technical_location": "COD_PORTE_EMPRESA",
+      "summary": "Código do Porte de Empresa."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-PORTE_EMPRESA_RFB-DSC_PORTE_EMPRESA",
+      "source_type": "metadata_column",
+      "source_file": "PORTE_EMPRESA_RFB",
+      "technical_location": "DSC_PORTE_EMPRESA",
+      "summary": "Descrição do Porte de Empresa."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-QUALIFICACAO_SOCIO_RFB-COD_QUALIFICACAO_SOCIO",
+      "source_type": "metadata_column",
+      "source_file": "QUALIFICACAO_SOCIO_RFB",
+      "technical_location": "COD_QUALIFICACAO_SOCIO",
+      "summary": "Código da Qualificação de um Sócio."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-QUALIFICACAO_SOCIO_RFB-DSC_QUALIFICACAO_SOCIO",
+      "source_type": "metadata_column",
+      "source_file": "QUALIFICACAO_SOCIO_RFB",
+      "technical_location": "DSC_QUALIFICACAO_SOCIO",
+      "summary": "Descrição da Qualificação de um Sócio."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-REPRESENTANTE_CRC-COD_CPF_REPRESENTANTE",
+      "source_type": "metadata_column",
+      "source_file": "REPRESENTANTE_CRC",
+      "technical_location": "COD_CPF_REPRESENTANTE",
+      "summary": "CPF do Representante da empresa de contabilidade."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-REPRESENTANTE_CRC-DAT_INCLUSAO",
+      "source_type": "metadata_column",
+      "source_file": "REPRESENTANTE_CRC",
+      "technical_location": "DAT_INCLUSAO",
+      "summary": "Data da Inclusão."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-REPRESENTANTE_NFA-COD_CNPJ_REPRESENTANTE",
+      "source_type": "metadata_column",
+      "source_file": "REPRESENTANTE_NFA",
+      "technical_location": "COD_CNPJ_REPRESENTANTE",
+      "summary": "CNPJ do Emissor."
+    },
+    {
+      "id": "EV-METADATA_COLUMN-RFB_EVENTO_MEI-COD_EVENTO_MEI",
+      "source_type": "metadata_column",
+      "source_file": "RFB_EVENTO_MEI",
+      "technical_location": "COD_EVENTO_MEI",
+      "summary": "Código do evento do SIMEI."
+    },
+    {
+      "id": "EV-SOURCE-RN003",
+      "source_type": "source_rule",
+      "source_file": "PessoaFisicaRFBBO.java",
+      "technical_location": "linha 50",
+      "summary": "Verifica se o CPF informado é válido antes de realizar a consulta."
+    },
+    {
+      "id": "EV-SOURCE-RN001-B10",
+      "source_type": "source_rule",
+      "source_file": "PessoaFisicaRFBBcadastroBO.java",
+      "technical_location": "linha 45",
+      "summary": "Lança uma exceção se a pessoa física não for encontrada pelo ID."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-REGISTRO",
+      "source_type": "source_rule",
+      "source_file": "RfbEventoSimplesNacionalRepository.java",
+      "technical_location": "countSimplesNacionalPorCnpjEOcorrencia()",
+      "summary": "Conta o número de eventos Simples Nacional para um CNPJ e data de ocorrência específicos."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-DESCRICAO",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Arquivos de eventos do Simples Nacional enviados pela Receita Federal."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-COD_CNPJ_BASICO",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Número do CNPJ básico enviado pela Receita Federal."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-COD_EVENTO_SN",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do evento do Simples Nacional."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-COD_NATUREZA_EVENTO",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Natureza de evento do Simples Nacional."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-COD_USUARIO",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Código do usuário que gravou o registro."
+    },
+    {
+      "id": "EV-SITUACAO_JURIDICA-VALIDACAO",
+      "source_type": "source_rule",
+      "source_file": "SituacaoJuridicaService.java",
+      "technical_location": "salvar()",
+      "summary": "Verifica se a situação jurídica já existe para o CGF e data do evento."
+    },
+    {
+      "id": "EV-SITUACAO_JURIDICA-DESCRICAO",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Tabela para guardar os eventos relacionados à situação jurídica."
+    },
+    {
+      "id": "EV-SINDUSCON-DESCRICAO",
+      "source_type": "metadata_table",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Contém as empresas construtoras civis filiadas ao SINDUSCON."
+    },
+    {
+      "id": "EV-SINDUSCON-COD_CNPJ_A",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "CNPJ alfanumérico da Empresa."
+    },
+    {
+      "id": "EV-SINDUSCON-NOM_RAZAO_SOCIAL",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Nome da empresa."
+    },
+    {
+      "id": "EV-NATUREZA_EVENTO-DOMINIO",
+      "source_type": "source_enum",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Domínio de valores para a natureza do evento."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN-CONTAGEM",
+      "source_type": "source_sql",
+      "source_file": "RfbEventoSimplesNacionalRepository.java",
+      "technical_location": "countEventoSimplesNacional()",
+      "summary": "Conta o número de eventos Simples Nacional para um código de evento específico."
+    },
+    {
+      "id": "EV-RFB_EVENTO_SN_SITUACAO_JURIDICA",
+      "source_type": "source_sql",
+      "source_file": "RfbEventoSimplesNacionalRepository.java",
+      "technical_location": "findByCnpj()",
+      "summary": "Busca eventos Simples Nacional associados a um CNPJ específico."
+    },
+    {
+      "id": "EV-SITUACAO_JURIDICA-DESCRICAO-B11",
+      "source_type": "metadata_column",
+      "source_file": "",
+      "technical_location": "",
+      "summary": "Descrição da Situação Cadastral."
+    },
+    {
+      "id": "EV-METADATATABLE-SITUACAO_CADASTRAL_RFB",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SITUACAO_CADASTRAL_RFB",
+      "summary": "Tabela que contém as situações cadastrais de estabelecimentos."
+    },
+    {
+      "id": "EV-METADATATABLE-SOCIEDADE",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE",
+      "summary": "Tabela que contém informações sobre sociedades e seus sócios."
+    },
+    {
+      "id": "EV-METADATATABLE-SOCIEDADE_JUCEC",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE_JUCEC",
+      "summary": "Tabela que contém informações sobre sociedades registradas na JUCEC."
+    },
+    {
+      "id": "EV-METADATACOLUMN-COD_SITUACAO_CADASTRAL",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SITUACAO_CADASTRAL_RFB.COD_SITUACAO_CADASTRAL",
+      "summary": "Código da Situação Cadastral."
+    },
+    {
+      "id": "EV-METADATACOLUMN-DSC_SITUACAO_CADASTRAL",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SITUACAO_CADASTRAL_RFB.DSC_SITUACAO_CADASTRAL",
+      "summary": "Descrição da Situação Cadastral."
+    },
+    {
+      "id": "EV-METADATACOLUMN-SEQ_SOCIEDADE",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE.SEQ_SOCIEDADE",
+      "summary": "Sequencial identificador da sociedade."
+    },
+    {
+      "id": "EV-METADATACOLUMN-SEQ_CONTRIBUINTE",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE.SEQ_CONTRIBUINTE",
+      "summary": "Sequencial identificador do contribuinte."
+    },
+    {
+      "id": "EV-METADATACOLUMN-SEQ_SOCIO",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE.SEQ_SOCIO",
+      "summary": "Sequencial identificador do sócio."
+    },
+    {
+      "id": "EV-METADATACOLUMN-SEQ_SOCIEDADE_JUCEC",
+      "source_type": "metadata_column",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "SOCIEDADE_JUCEC.SEQ_SOCIEDADE_JUCEC",
+      "summary": "Sequencial identificador do registro."
+    },
+    {
+      "id": "EV-SOURCE_RULE-RN001",
+      "source_type": "source_rule",
+      "source_file": "DadosContribuinteEditarEntrada.java",
+      "technical_location": "getSociedadeExclusao()",
+      "summary": "Retorna a lista de sociedades que foram excluídas com base na data de saída ou eventos de saída."
+    },
+    {
+      "id": "EV-SOURCE_ENUM-COD_CARGO_JUCEC",
+      "source_type": "source_enum",
+      "source_file": "ExecutarAlteracaoSociedade.java",
+      "technical_location": "COD_CARGO",
+      "summary": "Códigos que representam os cargos dos sócios na JUCEC."
+    },
+    {
+      "id": "EV-METADATA-SOCIO",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "cadastro.SOCIO",
+      "summary": "Tabela que armazena informações sobre sócios."
+    },
+    {
+      "id": "EV-METADATA-SOCIO_ESTRANGEIRO",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "cadastro.SOCIO_ESTRANGEIRO",
+      "summary": "Tabela que armazena informações sobre sócios estrangeiros."
+    },
+    {
+      "id": "EV-METADATA-SOCIO_JUCEC",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "cadastro.SOCIO_JUCEC",
+      "summary": "Tabela que armazena informações sobre sócios cadastrados na JUCEC."
+    },
+    {
+      "id": "EV-METADATA-SOCIO_RFB",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "cadastro.SOCIO_RFB",
+      "summary": "Tabela que armazena informações sobre sócios conforme Receita Federal."
+    },
+    {
+      "id": "EV-METADADOS-SOLICITACAO_CADASTRO",
+      "source_type": "metadata_table",
+      "source_file": "METADATA_CONTEXT",
+      "technical_location": "cadastro.SOLICITACAO_CADASTRO",
+      "summary": "Tabela que armazena solicitações de inclusão ou alteração cadastral de Contribuintes."
+    },
+    {
+      "id": "EV-RN001-B13",
+      "source_type": "source_rule",
+      "source_file": "ProdutorRuralBO.java",
+      "technical_location": "linha 150",
+      "summary": "Regra de negócio que valida se os dados do produtor rural estão corretos antes de salvar."
+    },
+    {
+      "id": "EV-RN002-B14",
+      "source_type": "source_rule",
+      "source_file": "ProdutorRuralBO.java",
+      "technical_location": "linha 200",
+      "summary": "Verifica se o CPF do produtor rural é válido e se não existe sócio ativo."
+    },
+    {
+      "id": "EV-RN004-B14",
+      "source_type": "source_rule",
+      "source_file": "SolicitacaoCadastroSocioValidador.java",
+      "technical_location": "linha 27",
+      "summary": "Verifica se o endereço do sócio foi informado."
+    },
+    {
+      "id": "EV-RN005",
+      "source_type": "source_rule",
+      "source_file": "SolicitacaoCadastroSocioValidador.java",
+      "technical_location": "linha 41",
+      "summary": "Verifica se o CPF do sócio foi informado e se é válido."
+    }
+  ],
+  "official_macroprocesses": [
+    {
+      "id": "MP-ARRECADACAO",
+      "name": "Arrecadação",
+      "associated_concepts": [],
+      "associated_capabilities": [],
+      "associated_rules": [],
+      "evidence": [],
+      "confidence": 0
+    },
+    {
+      "id": "MP-TRIBUTACAO",
+      "name": "Tributação",
+      "associated_concepts": [],
+      "associated_capabilities": [],
+      "associated_rules": [],
+      "evidence": [],
+      "confidence": 0
+    },
+    {
+      "id": "MP-GESTAO-FISCAL",
+      "name": "Gestão Fiscal",
+      "associated_concepts": [],
+      "associated_capabilities": [],
+      "associated_rules": [],
+      "evidence": [],
+      "confidence": 0
+    },
+    {
+      "id": "MP-ATENDIMENTO",
+      "name": "Atendimento",
+      "associated_concepts": [],
+      "associated_capabilities": [],
+      "associated_rules": [],
+      "evidence": [],
+      "confidence": 0
+    }
+  ],
+  "context_metadata": {
+    "artifact_type": "local_canonical_context",
+    "artifact_version": "1.0",
+    "organization": "Secretaria da Fazenda do Estado do Ceará",
+    "organization_acronym": "Sefaz-CE",
+    "system_id": "",
+    "system_name": "CADASTRO",
+    "schema": "cadastro",
+    "business_domain": "",
+    "generated_from": [],
+    "warnings": [
+      "functional_capabilities_inferred.evidence aponta para id(s) inexistente(s) em evidence_index: ['EV-SITUACAO_JURIDICA-GESTAO']"
+    ]
+  }
+}
